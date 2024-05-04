@@ -1,0 +1,58 @@
+CREATE TABLE IF NOT EXISTS cleandata (
+    age INT,
+    workclass VARCHAR(100),
+    fnlwgt INT,
+    education VARCHAR(100),
+    education_num INT,
+    marital_status VARCHAR(100),
+    occupation VARCHAR(100),
+    relationship VARCHAR(100),
+    race VARCHAR(100),
+    sex VARCHAR(10),
+    capital_gain INT,
+    capital_loss INT,
+    hours_per_week INT,
+    native_country VARCHAR(100)
+);
+
+\COPY cleandata FROM '/Users/vaishnavishah/Documents/COMPSCI645/Project/cleandata.csv' DELIMITER ',' HEADER CSV;
+
+CREATE TABLE unmarried AS
+SELECT 
+    age,
+    workclass,
+    fnlwgt,
+    education,
+    education_num,
+    occupation,
+    relationship,
+    race,
+    sex,
+    capital_gain,
+    capital_loss,
+    hours_per_week,
+    native_country
+FROM 
+    cleandata 
+WHERE 
+    marital_status = 'Unmarried';
+
+CREATE TABLE married AS
+SELECT 
+    age,
+    workclass,
+    fnlwgt,
+    education,
+    education_num,
+    occupation,
+    relationship,
+    race,
+    sex,
+    capital_gain,
+    capital_loss,
+    hours_per_week,
+    native_country
+FROM 
+    cleandata 
+WHERE 
+    marital_status = 'Married';
