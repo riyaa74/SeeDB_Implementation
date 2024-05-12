@@ -12,10 +12,11 @@ CREATE TABLE IF NOT EXISTS cleandata (
     capital_gain INT,
     capital_loss INT,
     hours_per_week INT,
-    native_country VARCHAR(100)
+    native_country VARCHAR(100),
+    income VARCHAR(100)
 );
 
-\COPY cleandata FROM '/Users/vaishnavishah/Documents/COMPSCI645/Project/cleandata.csv' DELIMITER ',' HEADER CSV;
+\COPY cleandata FROM '/Users/vaishnavishah/Documents/COMPSCI645/Project/SeeDB_Implementation/cleandata.csv' DELIMITER ',' HEADER CSV;
 
 CREATE VIEW unmarried AS
 SELECT 
@@ -31,7 +32,8 @@ SELECT
     capital_gain,
     capital_loss,
     hours_per_week,
-    native_country
+    native_country,
+    income
 FROM 
     cleandata 
 WHERE 
@@ -51,7 +53,8 @@ SELECT
     capital_gain,
     capital_loss,
     hours_per_week,
-    native_country
+    native_country,
+    income
 FROM 
     cleandata 
 WHERE 
