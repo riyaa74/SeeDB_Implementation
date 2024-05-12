@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS cleandata (
 
 \COPY cleandata FROM '/Users/vaishnavishah/Documents/COMPSCI645/Project/cleandata.csv' DELIMITER ',' HEADER CSV;
 
-CREATE TABLE unmarried AS
+CREATE VIEW unmarried AS
 SELECT 
     age,
     workclass,
@@ -37,7 +37,7 @@ FROM
 WHERE 
     marital_status = 'Unmarried';
 
-CREATE TABLE married AS
+CREATE VIEW married AS
 SELECT 
     age,
     workclass,
